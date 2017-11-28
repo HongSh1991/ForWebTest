@@ -20,6 +20,7 @@ public partial class Admin_Courseascx_AddCourse : System.Web.UI.UserControl
 			ddlCourse.DataBind();
 			
 			BindCourse();
+			BindCourseContent();
 		}
 	}
 
@@ -133,11 +134,11 @@ public partial class Admin_Courseascx_AddCourse : System.Web.UI.UserControl
 			string val1 = ddlCourse.SelectedValue;
 			string sqlInsertOrg = "insert into tb_CourseContent(CC_CConName, CC_CouID)values('" + val + "', '" + val1 + "')";
 			DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-			Response.Write("<script>alert('部门名称保存成功！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('目录名称保存成功！！');window.location='../Admin/Index.aspx'</script>");
 		}
 		else if (tbAddCourseContent.Text.Trim() == "")
 		{
-			Response.Write("<script>alert('请填写部门名称！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('请填写目录名称！！');window.location='../Admin/Index.aspx'</script>");
 		}
 		else
 		{
@@ -148,7 +149,7 @@ public partial class Admin_Courseascx_AddCourse : System.Web.UI.UserControl
 			//string readVal = DBHelper.DBHelper.ExecuteReader(compareVal).ToString();
 			if (DBHelper.DBHelper.ExecuteDataTable(compareVal1).Rows.Count > 0)
 			{
-				Response.Write("<script>alert('部门名称已存在！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('目录名称已存在！！');window.location='../Admin/Index.aspx'</script>");
 			}
 			else
 			{
@@ -156,12 +157,12 @@ public partial class Admin_Courseascx_AddCourse : System.Web.UI.UserControl
 				string val1 = ddlCourse.SelectedValue;
 				string sqlInsertOrg = "insert into tb_CourseContent(CC_CConName, CC_CouID)values('" + val + "', '" + val1 + "')";
 				DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-				Response.Write("<script>alert('部门名称保存成功！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('目录名称保存成功！！');window.location='../Admin/Index.aspx'</script>");
 			}
 		}
 	}
 
-	public void Bind()
+	public void BindCourseContent()
 	{
 		string dataSearch = "select * from tb_CourseContent a, tb_Course b where a.CC_CouID=b.C_CouID";
 		gvCourseContent.DataSource = DBHelper.DBHelper.ExecuteDataTable(dataSearch);
@@ -193,20 +194,20 @@ public partial class Admin_Courseascx_AddCourse : System.Web.UI.UserControl
 	protected void gvCourseContent_RowEditing(object sender, GridViewEditEventArgs e)
 	{
 		gvCourseContent.EditIndex = e.NewEditIndex;
-		Bind();
+		BindCourseContent();
 	}
 
 	protected void gvCourseContent_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
 	{
 		gvCourseContent.EditIndex = -1;
-		Bind();
+		BindCourseContent();
 	}
 
 	protected void gvCourseContent_RowDeleting(object sender, GridViewDeleteEventArgs e)
 	{
 		string deleteRow = "delete from tb_CourseContent where CC_CConID='" + gvCourseContent.DataKeys[e.RowIndex].Value.ToString() + "'";
 		DBHelper.DBHelper.ExectueNonQuery(deleteRow);
-		Bind();
+		BindCourseContent();
 	}
 
 	protected void gvCourseContent_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -215,13 +216,13 @@ public partial class Admin_Courseascx_AddCourse : System.Web.UI.UserControl
 			+ ((TextBox)(gvCourseContent.Rows[e.RowIndex].Cells[1].Controls[0])).Text.ToString().Trim() + "' where CC_CConID= '" + gvCourseContent.DataKeys[e.RowIndex].Value.ToString() + "'";
 		DBHelper.DBHelper.ExectueNonQuery(updateRow);
 		gvCourseContent.EditIndex = -1;
-		Bind();
+		BindCourseContent();
 	}
 
 	protected void gvCourseContent_PageIndexChanging(object sender, GridViewPageEventArgs e)
 	{
 		gvCourseContent.PageIndex = e.NewPageIndex;
-		Bind();
+		BindCourseContent();
 	}
 	#endregion
 }

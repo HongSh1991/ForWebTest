@@ -67,9 +67,9 @@
 	</div>
 	<asp:GridView ID="gvCourseContent" runat="server" OnRowEditing="gvCourseContent_RowEditing" OnRowUpdating="gvCourseContent_RowUpdating" OnRowDeleting="gvCourseContent_RowDeleting" OnRowCancelingEdit="gvCourseContent_RowCancelingEdit" OnPageIndexChanging="gvCourseContent_PageIndexChanging" OnRowDataBound="gvCourseContent_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="5" CssClass="layui-table">
 		<Columns>
-			<asp:BoundField DataField="D_DepID" HeaderText="序号" ItemStyle-Width="32px" />
-			<asp:BoundField DataField="D_DepartmentName" HeaderText="部门名称" />
-			<asp:BoundField DataField="O_OrgName" HeaderText="机构名称" />
+			<asp:BoundField DataField="CC_CConID" HeaderText="序号" ItemStyle-Width="32px" />
+			<asp:BoundField DataField="CC_CConName" HeaderText="目录名称" />
+			<asp:BoundField DataField="C_CouName" HeaderText="课程名称" />
 			<asp:CommandField HeaderText="编辑" ControlStyle-CssClass="layui-btn layui-btn-sm" ShowEditButton="true" ControlStyle-Width="100px" ItemStyle-Width="240px" />
 			<asp:CommandField HeaderText="删除" ControlStyle-CssClass="layui-btn layui-btn-danger layui-btn-sm" ShowDeleteButton="true" ControlStyle-Width="100px" ItemStyle-Width="240px" />
 		</Columns>
