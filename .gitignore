@@ -1,0 +1,10 @@
+/aspnet_client
+
+/Bin
+
+/laydate
+
+/*.config
+/*.webinfo
+/*.exclude
+/Resources/UploadFiles
