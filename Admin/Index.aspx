@@ -220,13 +220,13 @@
 																<span style="font-size: 14pt">课程内容目录</span>
 															</legend>
 														</fieldset>
-														<table style="height: 100%; width: 100%">
-															<tr style="height: 100%; width: 100%">
-																<td style="width: 100%; vertical-align: top; margin: 0 120px 0 0;">
-																	
-																</td>
-															</tr>
-														</table>
+														<div style="height: 10%; width: 100%; margin-top: 10px; margin-left: 150px; margin-right: 150px">
+															<table style="width: 100%; height: 100%">
+																<tr style="height: 100%; width: 100%">
+																	<td style="width: 100%; vertical-align: top; margin: 0 120px 0 0;"></td>
+																</tr>
+															</table>
+														</div>
 													</asp:View>
 													<asp:View ID="vCourseClassify" runat="server">
 														<table style="height: 100%; width: 100%">
