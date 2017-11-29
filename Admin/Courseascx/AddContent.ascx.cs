@@ -62,6 +62,30 @@ public partial class Admin_Courseascx_AddContent : System.Web.UI.UserControl
 
 	protected void btnSaveCourseFiles_Click(object sender, EventArgs e)
 	{
-		
+		string courseFileName = tbCourseFileName.Text.Trim();
+		string contentBelongs = ddlCourse.SelectedItem.Text.Trim() + "_" + ddlContent.SelectedItem.Text.Trim();
+		try
+		{
+			if (fuFiles.PostedFile.FileName == "")
+			{
+				lbShowTips.Text = "要上传的文件不允许为空！";
+				return;
+			}
+			else
+			{
+				string filePath = fuFiles.PostedFile.FileName;
+				string fileName = filePath.Substring(filePath.LastIndexOf("\\") + 1);
+				string courseFilePath = Server.MapPath("~\\Resources\\UploadFiles\\CourseFiles") + "\\" + fileName;
+				this.fuFiles.PostedFile.SaveAs(courseFilePath);
+
+				string sqlInsert = "insert into tb_CourseFiles(CF_CFileName, CF_CFileContent, CF_CFilePath)values('" + courseFileName + "', '" + contentBelongs + "', '" + courseFilePath + "')";
+				DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
+				Response.Write("<script>alert('课件添加成功！');window.location='../Admin/Index.aspx'</script>");
+			}
+		}
+		catch (Exception error)
+		{
+			lbShowTips.Text = "处理发生错误！原因： " + error.ToString();
+		}
 	}
 }

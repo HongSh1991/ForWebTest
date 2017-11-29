@@ -72,7 +72,7 @@
 	</legend>
 </fieldset>
 <div id="test4" class="site-text site-block" style="margin-top: 24px; margin-left: 520px;">
-	<table style="width: 100%; height: 100%;" align="center">
+	<table style="width: 100%; height: 100%;" align="center" >
 		<tr>
 			<td style="width: 45%">
 				<div class="layui-form-item" style="vertical-align:middle">
@@ -178,6 +178,9 @@
 				<td>
 					<input type="reset" class="layui-btn button3" />
 				</td>
+			</tr>
+			<tr>
+				<asp:Label ID="lbShowTips" runat="server" Text=""></asp:Label>
 			</tr>
 		</table>
 	</div>
