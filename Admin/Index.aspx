@@ -68,6 +68,11 @@
 			border-left: Gainsboro 1px solid;
 			border-bottom: Gainsboro 1px solid;
 		}
+		.linkButtonStyle
+		{
+			color:#01AAED;
+			text-decoration:none;
+		}
 	</style>
 
 </head>
@@ -116,8 +121,8 @@
 																<span style="font-size: 14pt">人员信息管理</span>
 															</legend>
 														</fieldset>
-														<div style="height:10%; width:100%; margin-top: 10px; margin-left: 150px; margin-right: 150px">
-															<table style="width:100%; height:100%">
+														<div style="height: 10%; width: 100%; margin-top: 10px; margin-left: 150px; margin-right: 150px">
+															<table style="width: 100%; height: 100%">
 																<tr>
 																	<td style="width: 100%">
 																		<div class="layui-form-item">
@@ -220,12 +225,85 @@
 																<span style="font-size: 14pt">课程内容目录</span>
 															</legend>
 														</fieldset>
+														
 														<div style="height: 10%; width: 100%; margin-top: 10px; margin-left: 150px; margin-right: 150px">
 															<table style="width: 100%; height: 100%">
-																<tr style="height: 100%; width: 100%">
-																	<td style="width: 100%; vertical-align: top; margin: 0 120px 0 0;"></td>
+																<tr>
+																	<td style="width: 100%">
+																		<div class="layui-form-item">
+																			<label class="layui-form-label" style="text-align: right">课件名称:</label>
+																			<div class="layui-input-inline">
+																				<asp:TextBox ID="tbFileName" runat="server" placeholder="请输入课件名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+																			</div>
+
+																			<label class="layui-form-label" style="text-align: right">所属目录:</label>
+																			<div class="layui-input-inline">
+																				<asp:DropDownList ID="ddlContentBelong" runat="server" AutoPostBack="True" CssClass="ddl" OnSelectedIndexChanged="ddlContentBelong_SelectIndexChange">
+																				</asp:DropDownList>
+																			</div>
+
+																			<asp:Button ID="btnSearchCourse" runat="server" Text="搜索课程" CssClass="layui-btn" OnClick="btnSearchCourse_Click" />
+																		</div>
+																	</td>
 																</tr>
 															</table>
+														</div>
+														<fieldset class="layui-elem-field layui-field-title" style="margin-top: 16px; margin-left: 120px; margin-right: 120px">
+														</fieldset>
+														<div style="margin-top: 8px; margin-left: 150px; margin-right: 150px">
+															<asp:DataList ID="dlCourseContent" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
+																<ItemTemplate>
+																	<table>
+																		<tr>
+																			<td style="height:300px; width:400px">
+																				<asp:Image ID="imgCourseFiles" runat="server" />
+																			</td>
+																		</tr>
+																		<tr>
+																			<td style="height:10px;"></td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<asp:Label ID="labCourseFileName" runat="server" Text='<%%DataBinder.Eval(Container.DataItem, "CF_CFileName")%>'></asp:Label>
+																			</td>
+																		</tr>
+																	</table>
+																	<div>
+																		<table>
+																			<tr>
+																				<td>
+																					<asp:Image ID="imgIcon" runat="server" Height="20px" Width="20px" />
+																				</td>
+																				<td>
+																					<asp:Button ID="btnEdit" runat="server" Text="Button" OnClick="btnEdit_Click" CssClass="layui-btn layui-btn-sm" />
+																					<asp:Button ID="btnDelete" runat="server" Text="Button" OnClick="btnDelete_Click" CssClass="layui-btn-danger layui-btn-sm" />
+																				</td>
+																			</tr>
+																		</table>
+																	</div>
+																</ItemTemplate>
+															</asp:DataList>
+															<div style="width: 100%">
+																<table style="width: 100%">
+																	<tr>
+																		<td style="width: 66%"></td>
+																		<td style="width: 10%" align="right">
+																			<span>当前页码为：[<asp:Label ID="labCurrentPage" runat="server"></asp:Label>]
+																			</span>
+																		</td>
+																		<td style="width: 8%" align="center">
+																			<span>总页码为：[<asp:Label ID="labTotalPage" runat="server"></asp:Label>]
+																			</span>
+																		</td>
+																		<td style="width: 16%" align="right">
+																			<asp:LinkButton ID="lbFirstPage" runat="server" CssClass="linkButtonStyle" OnClick="lbFirstPage_Click">第一页</asp:LinkButton>
+																			<asp:LinkButton ID="lbFrontPage" runat="server" CssClass="linkButtonStyle" OnClick="lbFrontPage_Click">上一页</asp:LinkButton>
+																			<asp:LinkButton ID="lbNextPage" runat="server" CssClass="linkButtonStyle" OnClick="lbNextPage_Click">下一页</asp:LinkButton>
+																			<asp:LinkButton ID="lbLastPage" runat="server" CssClass="linkButtonStyle" OnClick="lbLastPage_Click">最后一页</asp:LinkButton>
+																		</td>
+																	</tr>
+																</table>
+															</div>
 														</div>
 													</asp:View>
 													<asp:View ID="vCourseClassify" runat="server">

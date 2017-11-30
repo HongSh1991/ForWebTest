@@ -31,6 +31,10 @@ public partial class Admin_Index : System.Web.UI.Page
 			Bind();
 			//绑定部门数据
 			BindDepDDL();
+			//绑定课件目录
+			BindCourseDDL();
+			//绑定课件内容
+			BindCourseFiles();
 		}
 	}
 
@@ -237,5 +241,72 @@ public partial class Admin_Index : System.Web.UI.Page
 			gvUser.DataKeyNames = new string[] { "U_ID" };
 			gvUser.DataBind();
 		}
+	}
+
+	/// <summary>
+	/// 课件相关操作
+	/// </summary>
+	protected void BindCourseDDL()
+	{
+		string selectCourseFiles = "select * from tb_CourseFiles";
+		if (DBHelper.DBHelper.ExecuteDataTable(selectCourseFiles).Rows.Count != 0)
+		{
+			ddlContentBelong.Items.Clear();
+			ddlContentBelong.DataSource = DBHelper.DBHelper.ExecuteDataTable(selectCourseFiles);
+			ddlContentBelong.DataTextField = "CF_CFileContent";
+			ddlContentBelong.DataValueField = "CF_CFileID";
+			ddlContentBelong.DataBind();
+			ddlContentBelong.Items.Insert(0, new ListItem("---请选择课件所属目录---", "0"));
+		}
+	}
+
+	protected void BindCourseFiles()
+	{
+		//int currentPage = Convert.ToInt32(this.labCurrentPage.Text);
+		PagedDataSource ps = new PagedDataSource();
+		string sqlSearch = "select * from tb_CourseFiles";
+
+	}
+
+	protected void btnSearchCourse_Click(object sender, EventArgs e)
+	{
+		
+	}
+
+	protected void ddlContentBelong_SelectIndexChange(object sender, EventArgs e)
+	{
+		
+	}
+
+	protected void btnEdit_Click(object sender, EventArgs e)
+	{
+		
+	}
+
+	protected void btnDelete_Click(object sender, EventArgs e)
+	{
+		
+	}
+
+	//分页技术
+	protected void lbFirstPage_Click(object sender, EventArgs e)
+	{
+		this.labCurrentPage.Text = "1";
+		this.BindCourseFiles();
+	}
+
+	protected void lbFrontPage_Click(object sender, EventArgs e)
+	{
+		
+	}
+
+	protected void lbNextPage_Click(object sender, EventArgs e)
+	{
+		
+	}
+
+	protected void lbLastPage_Click(object sender, EventArgs e)
+	{
+		
 	}
 }
