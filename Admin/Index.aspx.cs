@@ -243,6 +243,7 @@ public partial class Admin_Index : System.Web.UI.Page
 		}
 	}
 
+
 	/// <summary>
 	/// 课件相关操作
 	/// </summary>
@@ -292,22 +293,57 @@ public partial class Admin_Index : System.Web.UI.Page
 
 	protected void btnSearchCourse_Click(object sender, EventArgs e)
 	{
-		
+		string inputValue = tbFileName.Text.Trim();
+		string sqlSearch = "select * from tb_CourseFiles where CF_CFileName = '" + inputValue +"'";
+		if(inputValue == "" || DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
+		{
+			Response.Write("<script>alert('没有该课件！！！');window.location='../Admin/Index.aspx'</script>");
+			BindCourseFiles();
+		}
+		else
+		{
+			dlCourseContent.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+			dlCourseContent.DataKeyField = "CF_CFileID";
+			dlCourseContent.DataBind();
+		}
 	}
 
 	protected void ddlContentBelong_SelectIndexChange(object sender, EventArgs e)
 	{
-		
+		string getValue = ddlContentBelong.SelectedItem.Text.Trim();
+		string sqlSearch = "select * from tb_CourseFiles where CF_CFileContent = '" + getValue +"'";
+		if(DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
+		{
+			BindCourseFiles();
+		}
+		else
+		{
+			dlCourseContent.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch);
+			//dlCourseContent.DataKeyField = "CF_CFileID";
+			dlCourseContent.DataBind();
+		}
 	}
 
-	protected void btnEdit_Click(object sender, EventArgs e)
+	protected void dlCourseContent_EditCommand(object sender, DataListCommandEventArgs e)
 	{
-		
+		dlCourseContent.EditItemIndex = e.Item.ItemIndex;
+		BindCourseFiles();
 	}
 
-	protected void btnDelete_Click(object sender, EventArgs e)
+	protected void dlCourseContent_DeleteCommand(object sender, DataListCommandEventArgs e)
 	{
-		
+		string getID = dlCourseContent.DataKeys[e.Item.ItemIndex].ToString();//获取当前DataList控件列
+		string sqlDelete = "delete from tb_CourseFiles where CF_CFileID= '" + Convert.ToInt32(getID) + "'";
+		DBHelper.DBHelper.ExectueNonQuery(sqlDelete);
+		BindCourseFiles();
+	}
+
+	protected void dlCourseContent_ItemDataBound(object sender, DataListItemEventArgs e)
+	{
+		if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+		{
+			((LinkButton)e.Item.Controls[0].FindControl("lbtnDelete")).Attributes.Add("onclick", "return confirm('确定要删除吗？')");
+		}
 	}
 
 	#region 分页技术

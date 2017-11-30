@@ -6,11 +6,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_Courseascx_AddContent : System.Web.UI.UserControl
+public partial class Admin_ModifyCourseFiles : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		if(!IsPostBack)
+		if (!IsPostBack)
 		{
 			this.fuFiles.Style.Add("display", "none");
 			//this.fuFiles.Attributes.Add("onchange", "document.getElementById('" + tbFilesPath.ClientID + "').value = this.value");

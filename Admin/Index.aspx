@@ -277,7 +277,7 @@
 																</legend>
 															</fieldset>
 															<div id="main2" align="center" style="margin-left: 36px; margin-right: 264px; overflow-x:hidden; overflow-y:auto;">
-																<asp:DataList ID="dlCourseContent" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
+																<asp:DataList ID="dlCourseContent" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" OnDeleteCommand="dlCourseContent_DeleteCommand" OnEditCommand="dlCourseContent_EditCommand" OnItemDataBound="dlCourseContent_ItemDataBound">
 																	<ItemTemplate>
 																		<div align="center" style="padding-left: 28px; padding-right: 28px;">
 																			<table>
@@ -299,12 +299,12 @@
 																				<table style="width: 100%; margin-bottom:4%;">
 																					<tr>
 																						<td style="width: 10%">
-																							<asp:Image ID="imgIcon" runat="server" Height="24px" Width="24px" />
+																							<asp:Image ID="imgIcon" runat="server" Height="24px" Width="24px" ImageUrl='<%#Eval("CF_CFileIcon")%>' />
 																						</td>
 																						<td style="width: 24%;"></td>
 																						<td style="width: 66%;" align="right">
-																							<asp:Button ID="btnEdit" runat="server" Text="编辑" OnClick="btnEdit_Click" CssClass="layui-btn layui-btn-sm button2" />
-																							<asp:Button ID="btnDelete" runat="server" Text="删除" OnClick="btnDelete_Click" CssClass="layui-btn layui-btn-danger layui-btn-sm button2" />
+																							<a href="#" class="layui-btn layui-btn-sm button2" onclick="window.open('ModifyCourseFiles.aspx','','width=640, height=480');">编辑</a>
+																							<asp:LinkButton ID="lbtnDelete" runat="server" Text="删除" CssClass="layui-btn layui-btn-danger layui-btn-sm button2" CommandName="delete" CommandArgument='<%#Eval("CF_CFileID")%>'></asp:LinkButton>
 																						</td>
 																					</tr>
 																				</table>
