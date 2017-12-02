@@ -16,6 +16,12 @@
 		<div>
 			<uc1:S_Header ID="S_Header1" runat="server" />
 		</div>
+		<aside>
+			
+		</aside>
+		<div style="width:90%">
+			
+		</div>
 	</form>
 </body>
 </html>

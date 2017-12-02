@@ -18,7 +18,8 @@ public partial class Teachers_CountTask : System.Web.UI.UserControl
 		chartPie.Series["Series1"].YValueMembers = "CD_CDataCourseNameNum";
 		//chartPie.Series["Series1"].Points.DataBindXY(sdr, "CD_CDataCourseName", sdr, "CD_CDataCourseNameNum");
 		chartPie.Series["Series1"].LegendText = "#VALX:[#PERCENT{P1}]";
-		chartPie.Series["Series1"].Label = "#VALX:[#PERCENT{P1}]";
+		chartPie.Series["Series1"].Label = "#VALX";
+		//chartPie.Series["Series1"].Label = "#VALX:[#PERCENT{P1}]";
 		chartPie.DataBind();
 	}
 }

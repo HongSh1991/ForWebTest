@@ -25,7 +25,7 @@
 			<asp:Title Name="pieTitle" Text="人员活跃度" Font="Microsoft Sans Serif, 16pt, style=bold" ForeColor="#01AAED"></asp:Title>
 		</Titles>
 		<Series>
-			<asp:Series Name="Series1" IsValueShownAsLabel="True" CustomProperties="MinPixelPointWidth=5, PointWidth=0.75, MaxPixelPointWidth=40" Font="微软雅黑, 9pt"></asp:Series>
+			<asp:Series Name="Series1" IsValueShownAsLabel="True" CustomProperties="MinPixelPointWidth=5, PointWidth=0.75, MaxPixelPointWidth=40" Font="微软雅黑, 11pt"></asp:Series>
 		</Series>
 		<ChartAreas>
 			<asp:ChartArea Name="ChartArea1" Area3DStyle-Enable3D="True" Area3DStyle-WallWidth="7"></asp:ChartArea>
