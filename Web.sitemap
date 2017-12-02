@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="~/Teachers/T_Index.aspx" title="教师首页"  description="">
+		<siteMapNode url="~/Teachers/UserInfoShow.aspx" title="人员列表"  description="" />
+		<siteMapNode url="~/Teachers/TaskListShow.aspx" title="课件列表"  description="" />
+	</siteMapNode>
+</siteMap>

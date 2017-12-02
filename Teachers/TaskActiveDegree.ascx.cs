@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Students_S_Index : System.Web.UI.Page
+public partial class Teachers_TaskActiveDegree : System.Web.UI.UserControl
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		
+
 	}
-
-
 }

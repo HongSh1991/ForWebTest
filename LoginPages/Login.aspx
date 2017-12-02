@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="../layui/css/layui.css"/>
 	<link rel="stylesheet" href="../layui/css/global.css" media="all" />
 </head>
-<body style="background-color:purple;"><!--#00CCFF-->
+<body style="background-color:#1E9FFF;"><!--#00CCFF-->
 	<table align="center" style="margin-top: 240px">
 		<tr>
 			<td style="width: 25%"></td>
@@ -56,7 +56,7 @@
 									</div>
 									<div >
 										<div align="center">
-											<asp:Button ID="btnLogin" runat="server" Text="登&nbsp;&nbsp;&nbsp;&nbsp;录" CssClass="layui-btn" OnClick="btnLogin_Click" />&nbsp;&nbsp;
+											<asp:Button ID="btnLogin" runat="server" Text="登&nbsp;&nbsp;&nbsp;&nbsp;录" CssClass="layui-btn layui-btn-primary" OnClick="btnLogin_Click" />&nbsp;&nbsp;
 											<asp:Button ID="btnReset" runat="server" Text="重&nbsp;&nbsp;&nbsp;&nbsp;置" CssClass="layui-btn layui-btn-primary" OnClick="btnReset_Click" />
 										</div>
 									</div>

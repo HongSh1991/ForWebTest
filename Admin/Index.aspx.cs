@@ -326,8 +326,13 @@ public partial class Admin_Index : System.Web.UI.Page
 
 	protected void dlCourseContent_EditCommand(object sender, DataListCommandEventArgs e)
 	{
-		dlCourseContent.EditItemIndex = e.Item.ItemIndex;
-		BindCourseFiles();
+		if ((e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem) && (Session["UserName"] != null))
+		{
+			string getID = dlCourseContent.DataKeys[e.Item.ItemIndex].ToString();//获取当前列
+			((LinkButton)e.Item.Controls[0].FindControl("lbtnEdit")).Attributes.Add("onclick", "window.open('../Admin/ModifyCourseFiles.aspx?id=" + getID + "','','width=680,height=660,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no').moveTo((1920-680)/2, (1080-660)/2)");
+		}
+		//dlCourseContent.EditItemIndex = e.Item.ItemIndex;
+		//BindCourseFiles();
 	}
 
 	protected void dlCourseContent_DeleteCommand(object sender, DataListCommandEventArgs e)

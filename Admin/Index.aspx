@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Admin_Index" %>
+
 <%@ Register Src="~/Admin/Webascx/Header.ascx" TagName="Header" TagPrefix="uc1" %>
 <%@ Register Src="~/Admin/Webascx/AddOrgContent.ascx" TagName="AddOrgContent" TagPrefix="uc2" %>
 <%@ Register Src="~/Admin/Webascx/AddDepartment.ascx" TagName="AddDepartment" TagPrefix="uc3" %>
@@ -27,15 +28,13 @@
 			cursor: pointer;
 		}
 
-		.button2 
-		{
-			width:72px;
+		.button2 {
+			width: 72px;
 		}
 
-		.buttonSearch
-		{
-			width:100%;
-			height:40px;
+		.buttonSearch {
+			width: 100%;
+			height: 40px;
 		}
 
 		* {
@@ -44,15 +43,14 @@
 			border: none;
 		}
 
-		.aside 
-		{
+		.aside {
 			position: absolute;
 			/*top: 21.7%;*/
 			top: 0%;
 			/*left: 2%;*/
 			bottom: 0;
-			width:20%;
-			background-color:#eeeeee;
+			width: 20%;
+			background-color: #eeeeee;
 		}
 
 		#main {
@@ -63,15 +61,17 @@
 			bottom: 0;
 			overflow: hidden;
 		}
+
 		#main1 {
 			position: absolute;
 			left: 8%;
 			/*top: 21.7%;*/
-			top:21.7%;
+			top: 21.7%;
 			right: 8%;
 			bottom: 0;
 			overflow: hidden;
 		}
+
 		#main2 {
 			position: absolute;
 			left: 19%;
@@ -80,6 +80,7 @@
 			bottom: 0;
 			overflow: hidden;
 		}
+
 		.ddl {
 			height: 38px;
 			width: 190px;
@@ -92,15 +93,31 @@
 			border-left: Gainsboro 1px solid;
 			border-bottom: Gainsboro 1px solid;
 		}
-		.linkButtonStyle
-		{
-			color:#01AAED;
-			text-decoration:none;
+
+		.linkButtonStyle {
+			color: #01AAED;
+			text-decoration: none;
 		}
 	</style>
 
+	<%--<script type="text/javascript">
+		//居中弹窗
+		//window.open('ModifyCourseFiles.aspx','','width=640, height=600');
+		function openwindow(url, name, iWidth, iHeight) {
+			var url;                            //转向网页的地址;
+			var name;                           //网页名称，可为空;
+			var iWidth;                         //弹出窗口的宽度;
+			var iHeight;                        //弹出窗口的高度;
+			//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+			var iTop = (window.screen.height - 30 - iHeight) / 2;       //获得窗口的垂直位置;
+			var iLeft = (window.screen.width - 10 - iWidth) / 2;        //获得窗口的水平位置;
+			window.open(url, name, 'height=' + iHeight + ',,innerHeight=' + iHeight + ',width=' + iWidth + ',innerWidth=' + iWidth + ',top=' + iTop + ',left=' + iLeft + ',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
+		}
+
+	</script>--%>
+
 </head>
-<body style="margin: auto; overflow-x:hidden;overflow-y:auto">
+<body style="margin: auto; overflow-x: hidden; overflow-y: auto">
 	<form id="form1" runat="server" class="layui-form-pane">
 		<div style="height: 28%;">
 			<uc1:Header ID="Header1" runat="server" />
@@ -114,16 +131,20 @@
 				<dl class="layui-nav-child">
 					<!-- 二级菜单 修改二级菜单至导航栏的距离只要修改 layui.css 文件中的layui-nav-child属性top为44px就好了-->
 					<%--<dd><asp:LinkButton ID="lbViewUser" runat="server" OnClick="lbViewUser_Click">查看人员</asp:LinkButton></dd>--%>
-					<dd><asp:LinkButton ID="lbDepartInfo" runat="server" OnClick="lbDepartInfo_Click">部门信息管理</asp:LinkButton></dd>
-					<dd><asp:LinkButton ID="lbUserInfo" runat="server" OnClick="lbUserInfo_Click">人员信息管理</asp:LinkButton></dd>
+					<dd>
+						<asp:LinkButton ID="lbDepartInfo" runat="server" OnClick="lbDepartInfo_Click">部门信息管理</asp:LinkButton></dd>
+					<dd>
+						<asp:LinkButton ID="lbUserInfo" runat="server" OnClick="lbUserInfo_Click">人员信息管理</asp:LinkButton></dd>
 				</dl>
 			</li>
 			<li class="layui-nav-item">
 				<asp:LinkButton ID="lbCourseManager" runat="server" OnClick="lbCourseManager_Click">课程管理</asp:LinkButton>
 				<dl class="layui-nav-child">
 					<!-- 二级菜单 -->
-					<dd><asp:LinkButton ID="lbCourseClassify" runat="server" OnClick="lbCourseClassify_Click">课程分类管理</asp:LinkButton></dd>
-					<dd><asp:LinkButton ID="lbAddCourses" runat="server" OnClick="lbAddCourses_Click">新增课程内容</asp:LinkButton></dd>
+					<dd>
+						<asp:LinkButton ID="lbCourseClassify" runat="server" OnClick="lbCourseClassify_Click">课程分类管理</asp:LinkButton></dd>
+					<dd>
+						<asp:LinkButton ID="lbAddCourses" runat="server" OnClick="lbAddCourses_Click">新增课程内容</asp:LinkButton></dd>
 				</dl>
 			</li>
 		</ul>
@@ -134,10 +155,10 @@
 					<td>
 						<asp:MultiView ID="mvPages" runat="server" ActiveViewIndex="0">
 							<asp:View ID="vUserManager" runat="server">
-								<div id="main" style="overflow-x:hidden; overflow-y:auto;">
+								<div id="main" style="overflow-x: hidden; overflow-y: auto;">
 									<table style="height: 100%; width: 100%">
 										<tr>
-											<td style="height: 100%; width: 100%; vertical-align:top">
+											<td style="height: 100%; width: 100%; vertical-align: top">
 												<asp:MultiView ID="mvPages1" runat="server" ActiveViewIndex="0">
 													<asp:View ID="vDataTable" runat="server">
 														<fieldset class="layui-elem-field layui-field-title" style="margin-top: 32px; margin-left: 120px; margin-right: 120px">
@@ -200,17 +221,17 @@
 													</asp:View>
 													<asp:View ID="vDepartment" runat="server">
 														<table style="height: 100%; width: 100%">
-															<tr style="height: 30%; width:100%">
-																<td style="width: 100%; vertical-align:top">
+															<tr style="height: 30%; width: 100%">
+																<td style="width: 100%; vertical-align: top">
 																	<uc2:AddOrgContent ID="AddOrgContent" runat="server" />
 																</td>
 															</tr>
-															<tr style="height: 30%; ">
+															<tr style="height: 30%;">
 																<td style="width: 100%">
 																	<uc3:AddDepartment ID="AddDepartment" runat="server" />
 																</td>
 															</tr>
-															<tr style="height: 40%; ">
+															<tr style="height: 40%;">
 																<td style="width: 100%">
 																	<uc4:AddJob ID="AddJob" runat="server" />
 																</td>
@@ -218,13 +239,13 @@
 														</table>
 													</asp:View>
 													<asp:View ID="vUserInfo" runat="server">
-														<fieldset class="layui-elem-field layui-field-title" style="margin:32px 60px 0 60px;">
+														<fieldset class="layui-elem-field layui-field-title" style="margin: 32px 60px 0 60px;">
 															<legend>
 																<span style="font-size: 14pt">人员信息管理</span>
 															</legend>
 														</fieldset>
 														<table style="height: 100%; width: 100%">
-															<tr style="height: 100%; width:100%">
+															<tr style="height: 100%; width: 100%">
 																<td style="width: 100%; vertical-align: top; margin: 0 120px 0 0;">
 																	<uc5:AddUserInfo ID="AddUserInfo" runat="server" />
 																</td>
@@ -238,14 +259,14 @@
 								</div>
 							</asp:View>
 							<asp:View ID="vCourseManager" runat="server">
-								<div id="main1" style="overflow-y:auto; overflow-x:hidden;">
+								<div id="main1" style="overflow-y: auto; overflow-x: hidden;">
 									<table style="height: 100%; width: 100%">
 										<tr>
-											<td style="height: 100%; width: 100%; vertical-align:top">
+											<td style="height: 100%; width: 100%; vertical-align: top">
 												<asp:MultiView ID="mvPages2" runat="server" ActiveViewIndex="0">
 													<asp:View ID="vCourses" runat="server">
 														<aside class="aside">
-															<div style="height: 10%; width: 100%; padding-left:4%; margin-top:4%">
+															<div style="height: 10%; width: 100%; padding-left: 4%; margin-top: 4%">
 																<table style="width: 100%; height: 100%">
 																	<tr>
 																		<td style="width: 100%">
@@ -276,7 +297,7 @@
 																	<span style="font-size: 14pt">课程内容目录</span>
 																</legend>
 															</fieldset>
-															<div id="main2" align="center" style="margin-left: 36px; margin-right: 264px; overflow-x:hidden; overflow-y:auto;">
+															<div id="main2" align="center" style="margin-left: 36px; margin-right: 264px; overflow-x: hidden; overflow-y: auto;">
 																<asp:DataList ID="dlCourseContent" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" OnDeleteCommand="dlCourseContent_DeleteCommand" OnEditCommand="dlCourseContent_EditCommand" OnItemDataBound="dlCourseContent_ItemDataBound">
 																	<ItemTemplate>
 																		<div align="center" style="padding-left: 28px; padding-right: 28px;">
@@ -296,14 +317,14 @@
 																				</tr>
 																			</table>
 																			<div style="width: 100%;">
-																				<table style="width: 100%; margin-bottom:4%;">
+																				<table style="width: 100%; margin-bottom: 4%;">
 																					<tr>
 																						<td style="width: 10%">
 																							<asp:Image ID="imgIcon" runat="server" Height="24px" Width="24px" ImageUrl='<%#Eval("CF_CFileIcon")%>' />
 																						</td>
 																						<td style="width: 24%;"></td>
 																						<td style="width: 66%;" align="right">
-																							<a href="#" class="layui-btn layui-btn-sm button2" onclick="window.open('ModifyCourseFiles.aspx','','width=640, height=480');">编辑</a>
+																							<asp:LinkButton ID="lbtnEdit" runat="server" CssClass="layui-btn layui-btn-sm button2" Text="编辑" CommandName="edit" ></asp:LinkButton>
 																							<asp:LinkButton ID="lbtnDelete" runat="server" Text="删除" CssClass="layui-btn layui-btn-danger layui-btn-sm button2" CommandName="delete" CommandArgument='<%#Eval("CF_CFileID")%>'></asp:LinkButton>
 																						</td>
 																					</tr>
@@ -314,7 +335,7 @@
 																</asp:DataList>
 																<div style="height: 20px"></div>
 																<div style="width: 100%;">
-																	<table style="width: 100%; margin-bottom:2%;">
+																	<table style="width: 100%; margin-bottom: 2%;">
 																		<tr>
 																			<td style="width: 60%"></td>
 																			<td style="width: 10%" align="right">
@@ -345,7 +366,7 @@
 																</td>
 															</tr>
 														</table>
-													</asp:View> 
+													</asp:View>
 													<asp:View ID="vAddCourses" runat="server">
 														<table style="height: 100%; width: 100%">
 															<tr style="height: 100%; width: 100%">
@@ -354,7 +375,7 @@
 																</td>
 															</tr>
 														</table>
-													</asp:View> 
+													</asp:View>
 												</asp:MultiView>
 											</td>
 										</tr>

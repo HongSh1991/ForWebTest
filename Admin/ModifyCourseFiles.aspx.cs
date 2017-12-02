@@ -16,6 +16,18 @@ public partial class Admin_ModifyCourseFiles : System.Web.UI.Page
 			//this.fuFiles.Attributes.Add("onchange", "document.getElementById('" + tbFilesPath.ClientID + "').value = this.value");
 
 			Bind();
+
+			BindRequest();
+		}
+	}
+
+	protected void BindRequest()
+	{
+		if(Request["id"]!=null)
+		{
+			string searchOrigin = "select * from tb_CourseFiles where CF_CFileID = " + Request["id"];
+			DataRowView rv = DBHelper.DBHelper.ExecuteDataTable(searchOrigin).DefaultView[0];
+			tbCourseFileName.Text = rv["CF_CFileName"].ToString();
 		}
 	}
 
@@ -87,7 +99,7 @@ public partial class Admin_ModifyCourseFiles : System.Web.UI.Page
 				{
 					string sqlInsert = "insert into tb_CourseFiles(CF_CFileIcon, CF_CFileName, CF_CFileContent, CF_CFilePath)values('" + courseFileIconPath1 + "', '" + courseFileName + "', '" + contentBelongs + "', '" + courseFilePath + "')";
 					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-					Response.Write("<script>alert('课件添加成功！');window.location='../Admin/Index.aspx'</script>");
+					Response.Write("<script>alert('课件添加成功！');opener.location.reload();window.close();</script>");//window.location='../Admin/Index.aspx'
 				}
 				else if (fileExtension == "ppt" || fileExtension == "pptx" || fileExtension == "pptm")
 				{
