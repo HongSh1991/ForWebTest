@@ -17,7 +17,8 @@ public partial class Teachers_CountUser : System.Web.UI.UserControl
 			chartBar.DataSource = DBHelper.DBHelper.ExecuteReader(searchData0);
 			chartBar.Series["Series1"].XValueMember = "CU_CUserDataUserName";
 			chartBar.Series["Series1"].YValueMembers = "CU_CUserDataUserNameNum";
-			chartBar.Series["Series1"].LegendToolTip = "#PERCENT";
+			chartBar.Series["Series1"].ToolTip = "#VALY:[#PERCENT{p2}]";//此处的提示是鼠标悬停就提示，不能用LabelToolTip，这个是用在ChartArea里的
+			chartBar.Series["Series1"].Label = "#VALY";
 			//控制图表内容的
 			chartBar.ChartAreas["ChartArea1"].AxisY.Interval = 2;
 			chartBar.ChartAreas["ChartArea1"].AxisX.Interval = 1;
@@ -52,7 +53,8 @@ public partial class Teachers_CountUser : System.Web.UI.UserControl
 			chartBar.DataSource = DBHelper.DBHelper.ExecuteReader(searchData0);
 			chartBar.Series["Series1"].XValueMember = "CU_CUserDataUserName";
 			chartBar.Series["Series1"].YValueMembers = "CU_CUserDataUserNameNum";
-			chartBar.Series["Series1"].ToolTip = "#PERCENT";
+			chartBar.Series["Series1"].ToolTip = "#VALY:[#PERCENT{p2}]";//此处的提示是鼠标悬停就提示，不能用LabelToolTip，这个是用在ChartArea里的
+			chartBar.Series["Series1"].Label = "#VALY";
 			//控制图表内容的
 			chartBar.ChartAreas["ChartArea1"].AxisY.Interval = 2;
 			chartBar.ChartAreas["ChartArea1"].AxisX.Interval = 1;
@@ -69,7 +71,8 @@ public partial class Teachers_CountUser : System.Web.UI.UserControl
 			chartBar.DataSource = DBHelper.DBHelper.ExecuteReader(searchData1);
 			chartBar.Series["Series1"].XValueMember = "CU_CUserDataUserName";
 			chartBar.Series["Series1"].YValueMembers = "CU_CUserDataUserNameNum";
-			chartBar.Series["Series1"].ToolTip = "#PERCENT";
+			chartBar.Series["Series1"].ToolTip = "#VALY:[#PERCENT{p2}]";//此处的提示是鼠标悬停就提示，不能用LabelToolTip，这个是用在ChartArea里的
+			chartBar.Series["Series1"].Label = "#VALY";
 			//控制图表内容的
 			chartBar.ChartAreas["ChartArea1"].AxisY.Interval = 2;
 			chartBar.ChartAreas["ChartArea1"].AxisX.Interval = 1;
