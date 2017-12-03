@@ -8,7 +8,7 @@
 <table style="width:100%">
 	<tr>
 		<td align="right" style="width:100%">
-			<div class="layui-form-item" style="height: 32px; margin-left:58%">
+			<div class="layui-form-item" style="height: 32px; margin-left:56%">
 				<label class="layui-form-label" style="text-align: right; width:180px;">与人员对应的培训任务:</label>
 				<div class="layui-input-inline">
 					<asp:DropDownList ID="ddlSearchTask" runat="server" AutoPostBack="True" CssClass="ddl" OnSelectedIndexChanged="ddlSearchTask_SelectIndexChange">
