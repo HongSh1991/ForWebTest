@@ -17,6 +17,7 @@
 
 		.button1 {
 			cursor: pointer;
+			color:#1E9FFF;
 		}
 
 		.button2 {
@@ -168,7 +169,7 @@
 																	<li style="height:30px; vertical-align: middle">
 																		<img alt="" src="../Resources/Student/images/circle.png" height="22" width="22" style="vertical-align: middle" />
 																		<span style="font-size: 10pt; vertical-align: middle">
-																			<%# Eval("SS_SStudyDate")%> 进行了 <%# Eval("SS_SStudyCourseName")%>, 任务完成度<%#Eval("SS_SStudyComDegree") %>。
+																			<%# Eval("SS_SStudyDate")%> 进行了 <%# Eval("SS_SStudyCourseName")%>, 任务完成度<%#Eval("SS_SStudyComDegree") %>%。
 																		</span>
 																	</li>
 																</ItemTemplate>
@@ -198,21 +199,21 @@
 						</td>
 					</tr>
 					<tr style="height:90%; width:100%; border-left-style:dashed; border-left-width:thin; border-right-style:dashed; border-right-width:thin">
-						<td align="center" style="width:49%;">
-							<div style="margin-top:16%">
-								<span style="font-size:16pt; font-weight:600;  color:#1E9FFF">任务列表</span>
+						<td align="center" style="width:49.6%;">
+							<div style="margin-top:8%">
+								<span style="font-size:3.2em; font-weight:600;  color:#1E9FFF">任务列表</span>
 							</div>
-							<div style="overflow-y:auto; overflow-x:hidden; width:100%; height:100%">
+							<div style="overflow-y:auto; overflow-x:hidden; width:100%; height:66%; margin-top:3.6%; border-right-style:dashed; border-right-width:thin">
 								<%--<asp:GridView ID="gvCount" runat="server"></asp:GridView>--%>
 								<asp:Repeater ID="repeaterCount" runat="server">
 									<ItemTemplate>
 										<table>
 											<tr>
 												<td>
-													<span>
-														<a href="#"><asp:Label ID="taskName" runat="server" Text='<%#Eval("任务名称")%>'></asp:Label></a>任务
+													<span style="font-size:2.1em">
+														<asp:Button ID="btnTaskName" runat="server" Text='<%#Eval("任务名称")%>' BackColor="White" CssClass="button1" OnClick="btnTaskName_Click"></asp:Button>任务
 														<asp:Label ID="taskFreq" runat="server" Text='<%#Eval("次数")%>'></asp:Label>次&nbsp;平均任务完成
-														<asp:Label ID="taskAverPer" runat="server" ></asp:Label>
+														<asp:Label ID="taskAverPer" runat="server" Text='<%#Eval("平均任务完成度")%>'></asp:Label>%
 													</span>
 												</td>
 											</tr>
@@ -221,13 +222,20 @@
 								</asp:Repeater>
 							</div>
 						</td>
-						<td style="width:2%;"></td>
-						<td align="center" valign="top" style="width:49%;">
-							<div style="margin-top:6%">
-								<span style="font-size:16pt; font-weight:600;  color:#1E9FFF">近10次成绩变化曲线</span>
+						<td style="width:0.8%;"></td>
+						<td align="center" style="width:49.6%;">
+							<div style="margin-top:8%">
+								<span style="font-size:3.2em; font-weight:600;  color:#1E9FFF">近10次成绩变化曲线</span>
 							</div>
-							<div>
-								
+							<div style="overflow-y:auto; overflow-x:hidden; width:100%; height:66%; margin-top:3.6%;">
+								<asp:Chart ID="chartScore" runat="server" BackImageAlignment="Center" Width="560px" Height="320px">
+									<Series>
+										<asp:Series Name="Series1" ChartType="Line" IsValueShownAsLabel="True" LabelBorderDashStyle="Solid" Font="微软雅黑, 10pt"></asp:Series>
+									</Series>
+									<ChartAreas>
+										<asp:ChartArea Name="ChartArea1" Area3DStyle-Enable3D="False" IsSameFontSizeForAllAxes="True"></asp:ChartArea>
+									</ChartAreas>
+								</asp:Chart>
 							</div>
 						</td>
 					</tr>

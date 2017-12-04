@@ -12,20 +12,6 @@ public partial class Admin_Index : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		if (Session["UserName"] == null)
-		{
-			Response.Write("<script languge='javascript'>alert('请先登录！');window.location.href='../LoginPages/Login.aspx'</script>");
-		}
-		else
-		{
-			string chineseName = "select U_ChineseName from tb_UserInfo where U_UserName = @username";
-			SqlParameter[] pms = new SqlParameter[] {
-				new SqlParameter("@username", Session["UserName"].ToString())
-			};
-			string name = DBHelper.DBHelper.ExecuteScalar(chineseName, pms).ToString();
-			lbTips.Text = name + "，欢迎您！";
-		}
-
 		if(!IsPostBack)
 		{
 			Bind();
@@ -36,52 +22,6 @@ public partial class Admin_Index : System.Web.UI.Page
 			//绑定课件内容
 			BindCourseFiles();
 		}
-	}
-
-	//人员管理
-	protected void lbUserManager_Click(object sender, EventArgs e)
-	{
-		// 显示第一页
-		this.mvPages.ActiveViewIndex = 0;
-		this.mvPages1.ActiveViewIndex = 0;
-	}
-
-	//protected void lbViewUser_Click(object sender, EventArgs e)
-	//{
-	//	// 显示第一页
-	//	this.mvPages1.ActiveViewIndex = 0;
-	//}
-
-	protected void lbDepartInfo_Click(object sender, EventArgs e)
-	{
-		// 显示第一页
-		this.mvPages1.ActiveViewIndex = 1;
-	}
-
-	protected void lbUserInfo_Click(object sender, EventArgs e)
-	{
-		// 显示第二页
-		this.mvPages1.ActiveViewIndex = 2;
-	}
-
-	//课程管理
-	protected void lbCourseManager_Click(object sender, EventArgs e)
-	{
-		// 显示第二页
-		this.mvPages.ActiveViewIndex = 1;
-		this.mvPages2.ActiveViewIndex = 0;
-	}
-
-	protected void lbCourseClassify_Click(object sender, EventArgs e)
-	{
-		// 显示第二页
-		this.mvPages2.ActiveViewIndex = 1;
-	}
-
-	protected void lbAddCourses_Click(object sender, EventArgs e)
-	{
-		// 显示第二页
-		this.mvPages2.ActiveViewIndex = 2;
 	}
 
 	public void Bind()
