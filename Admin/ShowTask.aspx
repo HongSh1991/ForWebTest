@@ -160,7 +160,7 @@
 														</td>
 														<td style="width: 24%;"></td>
 														<td style="width: 66%;" align="right">
-															<asp:LinkButton ID="lbtnEdit" runat="server" CssClass="layui-btn layui-btn-sm button2" Text="编辑" CommandName="edit"></asp:LinkButton>
+															<asp:LinkButton ID="lbtnEdit" runat="server" CssClass="layui-btn layui-btn-sm button2" Text="编辑" ToolTip='<%#Eval("CF_CFileID")%>' OnClick="lbtnEdit_Click"></asp:LinkButton>
 															<asp:LinkButton ID="lbtnDelete" runat="server" Text="删除" CssClass="layui-btn layui-btn-danger layui-btn-sm button2" CommandName="delete" CommandArgument='<%#Eval("CF_CFileID")%>'></asp:LinkButton>
 														</td>
 													</tr>

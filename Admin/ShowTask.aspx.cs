@@ -109,6 +109,12 @@ public partial class Admin_ShowTask : System.Web.UI.Page
 		//BindCourseFiles();
 	}
 
+	protected void lbtnEdit_Click(object sender, EventArgs e)
+	{
+		string id1 = ((LinkButton)sender).ToolTip.Trim().ToString();
+		Response.Redirect("ModifyCourseFiles.aspx?id="+id1);
+	}
+
 	protected void dlCourseContent_DeleteCommand(object sender, DataListCommandEventArgs e)
 	{
 		string getID = dlCourseContent.DataKeys[e.Item.ItemIndex].ToString();//获取当前DataList控件列

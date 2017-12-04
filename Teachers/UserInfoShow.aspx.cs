@@ -132,4 +132,11 @@ public partial class Teachers_UserInfoShow : System.Web.UI.Page
 			gvUser.DataBind();
 		}
 	}
+
+	protected void lbtnUserName_Click(object sender, EventArgs e)
+	{
+		string linkButtonText = ((LinkButton)sender).Text.ToString();
+		//Response.Write("<script>window.location='../Students/S_Index.asox?UserName=" + linkButtonText + "'</script>");
+		Response.Redirect("S_Student.aspx?UserName="+linkButtonText);
+	}
 }

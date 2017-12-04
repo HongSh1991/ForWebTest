@@ -150,12 +150,17 @@
 						<ItemStyle HorizontalAlign="Center" />
 						<HeaderStyle HorizontalAlign="Center" Width="32px" />
 					</asp:TemplateField>
-					<asp:BoundField DataField="U_UserName" HeaderText="用户名" />
-					<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" />
+					<asp:BoundField DataField="U_UserName" HeaderText="用户名" ItemStyle-Width="120px" />
+					<asp:TemplateField HeaderText="姓名" ItemStyle-Width="120px" >
+						<ItemTemplate>
+							<asp:LinkButton ID="lbtnUserName" runat="server" Text='<%#Eval("U_ChineseName")%>' OnClick="lbtnUserName_Click"></asp:LinkButton>
+						</ItemTemplate>
+					</asp:TemplateField>
+					<%--<asp:BoundField DataField="U_ChineseName" HeaderText="姓名" ItemStyle-Width="120px" />--%>
 					<asp:BoundField DataField="U_Sex" HeaderText="性别" ItemStyle-Width="32px" />
 					<asp:BoundField DataField="U_DepartmentName" HeaderText="部门" />
-					<asp:BoundField DataField="U_Role" HeaderText="角色" ItemStyle-Width="80px" />
-					<asp:BoundField DataField="U_PhoneNum" ItemStyle-Width="100px" HeaderText="电话" />
+					<asp:BoundField DataField="U_Role" HeaderText="角色" ItemStyle-Width="120px" />
+					<asp:BoundField DataField="U_PhoneNum" ItemStyle-Width="120px" HeaderText="电话" />
 				</Columns>
 				<HeaderStyle HorizontalAlign="Center" BackColor="LightGray" />
 				<RowStyle HorizontalAlign="Center" />

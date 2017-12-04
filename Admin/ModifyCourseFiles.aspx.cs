@@ -23,11 +23,13 @@ public partial class Admin_ModifyCourseFiles : System.Web.UI.Page
 
 	protected void BindRequest()
 	{
-		if(Request["id"]!=null)
+		string getID = Request.QueryString["id"].ToString();
+		if (getID != null)
 		{
-			string searchOrigin = "select * from tb_CourseFiles where CF_CFileID = " + Request["id"];
+			string searchOrigin = "select * from tb_CourseFiles where CF_CFileID = " + Convert.ToInt32(getID);
 			DataRowView rv = DBHelper.DBHelper.ExecuteDataTable(searchOrigin).DefaultView[0];
 			tbCourseFileName.Text = rv["CF_CFileName"].ToString();
+
 		}
 	}
 
@@ -74,6 +76,9 @@ public partial class Admin_ModifyCourseFiles : System.Web.UI.Page
 
 	protected void btnSaveCourseFiles_Click(object sender, EventArgs e)
 	{
+		//从主页面传过来的id值
+		string getID = Request.QueryString["id"].ToString();
+
 		string courseFileName = tbCourseFileName.Text.Trim();
 		string contentBelongs = ddlCourse.SelectedItem.Text.Trim() + "_" + ddlContent.SelectedItem.Text.Trim();
 		try
@@ -97,27 +102,27 @@ public partial class Admin_ModifyCourseFiles : System.Web.UI.Page
 
 				if (fileExtension == "doc" || fileExtension == "docx" || fileExtension == "docm")
 				{
-					string sqlInsert = "insert into tb_CourseFiles(CF_CFileIcon, CF_CFileName, CF_CFileContent, CF_CFilePath)values('" + courseFileIconPath1 + "', '" + courseFileName + "', '" + contentBelongs + "', '" + courseFilePath + "')";
+					string sqlInsert = "update tb_CourseFiles set CF_CFileIcon='" + courseFileIconPath1 + "', CF_CFileName='" + courseFileName + "', CF_CFileContent='" + contentBelongs + "', CF_CFilePath='" + courseFilePath + "' where CF_CFileID='" + getID + "'";
 					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-					Response.Write("<script>alert('课件添加成功！');opener.location.reload();window.close();</script>");//window.location='../Admin/Index.aspx'
+					Response.Write("<script>alert('课件更新成功！');window.location='ShowTask.aspx'</script>");//window.location='../Admin/Index.aspx'
 				}
 				else if (fileExtension == "ppt" || fileExtension == "pptx" || fileExtension == "pptm")
 				{
-					string sqlInsert = "insert into tb_CourseFiles(CF_CFileIcon, CF_CFileName, CF_CFileContent, CF_CFilePath)values('" + courseFileIconPath2 + "', '" + courseFileName + "', '" + contentBelongs + "', '" + courseFilePath + "')";
+					string sqlInsert = "update tb_CourseFiles set CF_CFileIcon='" + courseFileIconPath2 + "', CF_CFileName='" + courseFileName + "', CF_CFileContent='" + contentBelongs + "', CF_CFilePath='" + courseFilePath + "' where CF_CFileID='" + getID + "'";
 					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-					Response.Write("<script>alert('课件添加成功！');window.location='../Admin/Index.aspx'</script>");
+					Response.Write("<script>alert('课件更新成功！');window.location='ShowTask.aspx'</script>");
 				}
 				else if (fileExtension == "xls" || fileExtension == "xlsx" || fileExtension == "xlsm" || fileExtension == "csv")
 				{
-					string sqlInsert = "insert into tb_CourseFiles(CF_CFileIcon, CF_CFileName, CF_CFileContent, CF_CFilePath)values('" + courseFileIconPath3 + "', '" + courseFileName + "', '" + contentBelongs + "', '" + courseFilePath + "')";
+					string sqlInsert = "update tb_CourseFiles set CF_CFileIcon='" + courseFileIconPath3 + "', CF_CFileName='" + courseFileName + "', CF_CFileContent='" + contentBelongs + "', CF_CFilePath='" + courseFilePath + "' where CF_CFileID='" + getID + "'";
 					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-					Response.Write("<script>alert('课件添加成功！');window.location='../Admin/Index.aspx'</script>");
+					Response.Write("<script>alert('课件更新成功！');window.location='ShowTask.aspx'</script>");
 				}
 				else if (fileExtension == "pdf")
 				{
-					string sqlInsert = "insert into tb_CourseFiles(CF_CFileIcon, CF_CFileName, CF_CFileContent, CF_CFilePath)values('" + courseFileIconPath4 + "', '" + courseFileName + "', '" + contentBelongs + "', '" + courseFilePath + "')";
+					string sqlInsert = "update tb_CourseFiles set CF_CFileIcon='" + courseFileIconPath4 + "', CF_CFileName='" + courseFileName + "', CF_CFileContent='" + contentBelongs + "', CF_CFilePath='" + courseFilePath + "' where CF_CFileID='" + getID + "'";
 					DBHelper.DBHelper.ExectueNonQuery(sqlInsert);
-					Response.Write("<script>alert('课件添加成功！');window.location='../Admin/Index.aspx'</script>");
+					Response.Write("<script>alert('课件更新成功！');window.location='ShowTask.aspx'</script>");
 				}
 			}
 		}
