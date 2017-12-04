@@ -62,14 +62,14 @@
 			<uc1:Header ID="Header1" runat="server" />
 		</div>
 		<div style="width:80%;">
-			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 32px;margin-left:24%">
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1.2%;margin-left:24%">
 				<legend>
 					<span style="font-size: 14pt">添加人员信息</span>
 				</legend>
 			</fieldset>
 			<!--新增人员-->
 			<div class="site-text site-block" style="margin-top: 24px; margin-left:42.6%;">
-				<table align="center" style="width: 100%; height:">
+				<table align="center" style="width: 100%; height:100%">
 					<tr>
 						<td style="width: 45%">
 							<div class="layui-form-item">

@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Admin_Index" %>
 
 <%@ Register Src="~/Admin/Webascx/Header.ascx" TagName="Header" TagPrefix="uc1" %>
-<%@ Register Src="~/Admin/Webascx/AddOrgContent.ascx" TagName="AddOrgContent" TagPrefix="uc2" %>
+<%--<%@ Register Src="~/Admin/Webascx/AddOrgContent.ascx" TagName="AddOrgContent" TagPrefix="uc2" %>
 <%@ Register Src="~/Admin/Webascx/AddDepartment.ascx" TagName="AddDepartment" TagPrefix="uc3" %>
 <%@ Register Src="~/Admin/Webascx/AddJob.ascx" TagName="AddJob" TagPrefix="uc4" %>
 <%@ Register Src="~/Admin/Webascx/AddUserInfo.ascx" TagName="AddUserInfo" TagPrefix="uc5" %>
 <%@ Register Src="~/Admin/Courseascx/AddCourse.ascx" TagName="AddCourse" TagPrefix="uc6" %>
-<%@ Register Src="~/Admin/Courseascx/AddContent.ascx" TagName="AddContent" TagPrefix="uc7" %>
+<%@ Register Src="~/Admin/Courseascx/AddContent.ascx" TagName="AddContent" TagPrefix="uc7" %>--%>
 
 <!DOCTYPE html>
 
@@ -122,12 +122,11 @@
 		<div style="height: 28%;">
 			<uc1:Header ID="Header1" runat="server" />
 		</div>
-
-		<div style="height: 56%;">
+		<div style="height: 56%; overflow-x: hidden; overflow-y: auto;">
 			<table style="height: 100%; width: 100%">
 				<tr>
 					<td>
-						<div id="main" style="overflow-x: hidden; overflow-y: auto;">
+						<div id="main">
 							<table style="height: 100%; width: 100%">
 								<tr>
 									<td style="height: 100%; width: 100%; vertical-align: top">
@@ -187,129 +186,6 @@
 												<RowStyle HorizontalAlign="Center" />
 											</asp:GridView>
 										</div>
-									</td>
-								</tr>
-							</table>
-						</div>
-
-						<div id="main1" style="overflow-y: auto; overflow-x: hidden;">
-							<table style="height: 100%; width: 100%">
-								<tr>
-									<td style="height: 100%; width: 100%; vertical-align: top">
-										<asp:MultiView ID="mvPages2" runat="server" ActiveViewIndex="0">
-											<asp:View ID="vCourses" runat="server">
-												<aside class="aside">
-													<div style="height: 10%; width: 100%; padding-left: 4%; margin-top: 4%">
-														<table style="width: 100%; height: 100%">
-															<tr>
-																<td style="width: 100%">
-																	<div class="layui-form-item">
-																		<label class="layui-form-label" style="text-align: right">课件名称:</label>
-																		<div class="layui-input-inline">
-																			<asp:TextBox ID="tbFileName" runat="server" placeholder="请输入课件名称" autocomplete="off" CssClass="layui-input"></asp:TextBox>
-																		</div>
-																	</div>
-																	<div class="layui-form-item">
-																		<label class="layui-form-label" style="text-align: right">所属目录:</label>
-																		<div class="layui-input-inline">
-																			<asp:DropDownList ID="ddlContentBelong" runat="server" AutoPostBack="True" CssClass="ddl" OnSelectedIndexChanged="ddlContentBelong_SelectIndexChange">
-																			</asp:DropDownList>
-																		</div>
-																	</div>
-																	<div class="layui-form-item" style="margin-right: 7.2%;">
-																		<asp:Button ID="btnSearchCourse" runat="server" Text="搜索课程" CssClass="layui-btn buttonSearch" OnClick="btnSearchCourse_Click" />
-																	</div>
-																</td>
-															</tr>
-														</table>
-													</div>
-												</aside>
-												<div>
-													<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 340px; margin-right: 120px">
-														<legend>
-															<span style="font-size: 14pt">课程内容目录</span>
-														</legend>
-													</fieldset>
-													<div id="main2" align="center" style="margin-left: 36px; margin-right: 264px; overflow-x: hidden; overflow-y: auto;">
-														<asp:DataList ID="dlCourseContent" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" OnDeleteCommand="dlCourseContent_DeleteCommand" OnEditCommand="dlCourseContent_EditCommand" OnItemDataBound="dlCourseContent_ItemDataBound">
-															<ItemTemplate>
-																<div align="center" style="padding-left: 28px; padding-right: 28px;">
-																	<table>
-																		<tr>
-																			<td>
-																				<asp:Image ID="imgCourseFiles" runat="server" BorderStyle="Solid" Height="240px" Width="320px" ImageAlign="AbsMiddle" />
-																			</td>
-																		</tr>
-																		<tr>
-																			<td style="height: 10px;"></td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<asp:Label ID="labCourseFileName" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "CF_CFileName")%>'></asp:Label>
-																			</td>
-																		</tr>
-																	</table>
-																	<div style="width: 100%;">
-																		<table style="width: 100%; margin-bottom: 4%;">
-																			<tr>
-																				<td style="width: 10%">
-																					<asp:Image ID="imgIcon" runat="server" Height="24px" Width="24px" ImageUrl='<%#Eval("CF_CFileIcon")%>' />
-																				</td>
-																				<td style="width: 24%;"></td>
-																				<td style="width: 66%;" align="right">
-																					<asp:LinkButton ID="lbtnEdit" runat="server" CssClass="layui-btn layui-btn-sm button2" Text="编辑" CommandName="edit"></asp:LinkButton>
-																					<asp:LinkButton ID="lbtnDelete" runat="server" Text="删除" CssClass="layui-btn layui-btn-danger layui-btn-sm button2" CommandName="delete" CommandArgument='<%#Eval("CF_CFileID")%>'></asp:LinkButton>
-																				</td>
-																			</tr>
-																		</table>
-																	</div>
-																</div>
-															</ItemTemplate>
-														</asp:DataList>
-														<div style="height: 20px"></div>
-														<div style="width: 100%;">
-															<table style="width: 100%; margin-bottom: 2%;">
-																<tr>
-																	<td style="width: 60%"></td>
-																	<td style="width: 10%" align="right">
-																		<span>当前页码为：[&nbsp;<asp:Label ID="labCurrentPage" runat="server" Text="1"></asp:Label>&nbsp;]
-																		</span>
-																	</td>
-																	<td style="width: 10%" align="left">
-																		<span>&nbsp;总页码为：[&nbsp;<asp:Label ID="labTotalPage" runat="server"></asp:Label>&nbsp;]&nbsp;&nbsp;
-																		</span>
-																	</td>
-																	<td style="width: 20%;" align="left">
-																		<asp:LinkButton ID="lbFirstPage" runat="server" CssClass="linkButtonStyle" OnClick="lbFirstPage_Click">第一页</asp:LinkButton>
-																		<asp:LinkButton ID="lbFrontPage" runat="server" CssClass="linkButtonStyle" OnClick="lbFrontPage_Click">上一页</asp:LinkButton>
-																		<asp:LinkButton ID="lbNextPage" runat="server" CssClass="linkButtonStyle" OnClick="lbNextPage_Click">下一页</asp:LinkButton>
-																		<asp:LinkButton ID="lbLastPage" runat="server" CssClass="linkButtonStyle" OnClick="lbLastPage_Click">最后一页</asp:LinkButton>
-																	</td>
-																</tr>
-															</table>
-														</div>
-													</div>
-												</div>
-											</asp:View>
-											<asp:View ID="vCourseClassify" runat="server">
-												<table style="height: 100%; width: 100%">
-													<tr style="height: 100%; width: 100%">
-														<td style="width: 100%; vertical-align: top; margin: 0 120px 0 0;">
-															<uc6:AddCourse ID="AddCourse1" runat="server" />
-														</td>
-													</tr>
-												</table>
-											</asp:View>
-											<asp:View ID="vAddCourses" runat="server">
-												<table style="height: 100%; width: 100%">
-													<tr style="height: 100%; width: 100%">
-														<td style="width: 100%; vertical-align: top; margin: 0 120px 0 0;">
-															<uc7:AddContent ID="AddContent1" runat="server" />
-														</td>
-													</tr>
-												</table>
-											</asp:View>
-										</asp:MultiView>
 									</td>
 								</tr>
 							</table>

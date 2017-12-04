@@ -47,10 +47,11 @@
 		}
 
 		#main {
-			position: absolute;
-			left: 8%;
-			top: 21.7%;
-			right: 8%;
+			position:absolute;
+			height:120%;
+			left: 2%;
+			/*top: 21.7%;*/
+			right: 0%;
 			bottom: 0;
 			/*overflow: hidden;*/
 		}
@@ -62,7 +63,7 @@
 			top: 21.7%;
 			right: 8%;
 			bottom: 0;
-			/*overflow: hidden;*/
+			overflow: hidden;
 		}
 
 		#main2 {
@@ -71,7 +72,7 @@
 			top: 8%;
 			/*right: 8%;*/
 			bottom: 0;
-			/*overflow: hidden;*/
+			overflow: hidden;
 		}
 
 		.ddl {
@@ -93,23 +94,23 @@
 		}
 	</style>
 </head>
-<body style="margin: auto; overflow-y:auto; overflow-x:hidden">
+<body style="margin: auto; height:100%; overflow-y:hidden">
 	<form id="form1" runat="server" class="layui-form-pane">
 		<div>
 			<uc1:Header ID="Header1" runat="server" />
 		</div>
-		<div style="height: 100%;">
-			<table style="height: 100%; width: 100%">
+		<div id="main" style="height: 78.2%; overflow-x:hidden; overflow-y:auto;">
+			<table style="height: 100%; width: 100%;">
 				<tr>
-					<td>
+					<td style="height: 24%; width: 100%;">
 						<!--机构信息-->
-						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 32px; margin-left: 120px; margin-right: 120px">
+						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
 								<span style="font-size: 14pt">机构信息管理</span>
 							</legend>
 						</fieldset>
 						<!--新增机构目录-->
-						<div id="test1" class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px; height:32%">
+						<div class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px;">
 							<div class="layui-form-item">
 								<label class="layui-form-label" style="text-align: right">机构名称:</label>
 								<div class="layui-input-inline">
@@ -131,17 +132,18 @@
 								<RowStyle HorizontalAlign="Center" />
 							</asp:GridView>
 						</div>
+					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="height: 24%; width: 100%;">
 						<!--部门信息-->
-						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 32px; margin-left: 120px; margin-right: 120px">
+						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
 								<span style="font-size: 14pt">部门信息管理</span>
 							</legend>
 						</fieldset>
 						<!--新增部门-->
-						<div id="test2" class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px; height:32%">
+						<div class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px;">
 							<div class="layui-form-item">
 								<label class="layui-form-label" style="text-align: right">部门名称:</label>
 								<div class="layui-input-inline">
@@ -171,15 +173,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td style="height: 24%; width: 100%;">
 						<!--岗位信息-->
-						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 32px; margin-left: 120px; margin-right: 120px">
+						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
 								<span style="font-size: 14pt">岗位信息管理</span>
 							</legend>
 						</fieldset>
 						<!--新增岗位-->
-						<div id="test3" class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px; height:32%">
+						<div class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px;">
 							<div class="layui-form-item">
 								<label class="layui-form-label" style="text-align: right">岗位名称:</label>
 								<div class="layui-input-inline">

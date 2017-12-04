@@ -32,7 +32,7 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 			ddlBDepartment.DataValueField = "D_DepID";
 			ddlBDepartment.DataBind();
 
-
+			BindJob();
 		}
 	}
 
@@ -46,11 +46,11 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 			string val = tbOrgName.Text.Trim().ToString();
 			string sqlInsertOrg = "insert into tb_OrgContent(O_OrgName)values('" + val + "')";
 			DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-			Response.Write("<script>alert('机构名称添加成功！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('机构名称添加成功！！');window.location=''</script>");
 		}
 		else if (tbOrgName.Text.Trim() == "")
 		{
-			Response.Write("<script>alert('请填写机构名称！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('请填写机构名称！！');window.location=''</script>");
 		}
 		else
 		{
@@ -59,14 +59,14 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 			//string readVal = DBHelper.DBHelper.ExecuteReader(compareVal).ToString();
 			if (DBHelper.DBHelper.ExecuteDataTable(compareVal).Rows.Count > 0)
 			{
-				Response.Write("<script>alert('机构名称已存在！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('机构名称已存在！！');window.location=''</script>");
 			}
 			else
 			{
 				string val = tbOrgName.Text.Trim().ToString();
 				string sqlInsertOrg = "insert into tb_OrgContent(O_OrgName)values('" + val + "')";
 				DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-				Response.Write("<script>alert('机构名称添加成功！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('机构名称添加成功！！');window.location=''</script>");
 			}
 		}
 	}
@@ -146,11 +146,11 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 			string val1 = ddlBOrgContent.SelectedValue;
 			string sqlInsertOrg = "insert into tb_Department(D_DepartmentName, D_OrgID)values('" + val + "', '" + val1 + "')";
 			DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-			Response.Write("<script>alert('部门名称保存成功！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('部门名称保存成功！！');window.location=''</script>");
 		}
 		else if (tbAddDepartment.Text.Trim() == "")
 		{
-			Response.Write("<script>alert('请填写部门名称！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('请填写部门名称！！');window.location=''</script>");
 		}
 		else
 		{
@@ -161,7 +161,7 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 			//string readVal = DBHelper.DBHelper.ExecuteReader(compareVal).ToString();
 			if (DBHelper.DBHelper.ExecuteDataTable(compareVal1).Rows.Count > 0)
 			{
-				Response.Write("<script>alert('部门名称已存在！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('部门名称已存在！！');window.location=''</script>");
 			}
 			else
 			{
@@ -169,7 +169,7 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 				string val1 = ddlBOrgContent.SelectedValue;
 				string sqlInsertOrg = "insert into tb_Department(D_DepartmentName, D_OrgID)values('" + val + "', '" + val1 + "')";
 				DBHelper.DBHelper.ExectueNonQuery(sqlInsertOrg);
-				Response.Write("<script>alert('部门名称保存成功！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('部门名称保存成功！！');window.location=''</script>");
 			}
 		}
 	}
@@ -253,7 +253,7 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 		}
 		else if (tbAddPost.Text.Trim() == "")
 		{
-			Response.Write("<script>alert('请填写岗位名称！！');window.location='../Admin/Index.aspx'</script>");
+			Response.Write("<script>alert('请填写岗位名称！！');window.location=''</script>");
 		}
 		else
 		{
@@ -264,7 +264,7 @@ public partial class Admin_OrgDepJob : System.Web.UI.Page
 			//string readVal = DBHelper.DBHelper.ExecuteReader(compareVal).ToString();
 			if (DBHelper.DBHelper.ExecuteDataTable(compareVal1).Rows.Count > 0)
 			{
-				Response.Write("<script>alert('岗位名称已存在！！');window.location='../Admin/Index.aspx'</script>");
+				Response.Write("<script>alert('岗位名称已存在！！');window.location=''</script>");
 			}
 			else
 			{

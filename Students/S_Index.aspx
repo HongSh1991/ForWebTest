@@ -120,7 +120,7 @@
 		});
 	</script>  
 </head>
-<body>
+<body style="margin:auto">
 	<form id="form1" runat="server" class="layui-form-pane">
 		<div>
 			<uc1:S_Header ID="S_Header1" runat="server" />

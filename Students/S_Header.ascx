@@ -33,8 +33,7 @@
 		<asp:Label ID="lbTips" runat="server" Font-Names="华文楷体" Font-Bold="true" ForeColor="white" Font-Size="1.6em"></asp:Label>
 	</li>
 	<li class="layui-nav-item">
-		<asp:LinkButton ID="lbExit" runat="server" OnClick="lbExit_Click">
-			<span style="font-family:微软雅黑; vertical-align:middle; font-size:11pt; color:white">退出系统</span>
+		<asp:LinkButton ID="lbExit" runat="server" OnClick="lbExit_Click">退出系统
 		</asp:LinkButton>
 	</li>
 </ul>

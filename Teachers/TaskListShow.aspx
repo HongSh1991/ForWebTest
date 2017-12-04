@@ -183,7 +183,7 @@
 			<div style="width: 100%;">
 				<table style="width: 100%; margin-bottom: 1%;">
 					<tr>
-						<td style="width: 64%"></td>
+						<td style="width: 66%"></td>
 						<td style="width: 10%" align="right">
 							<span>当前页码为：[&nbsp;<asp:Label ID="labCurrentPage" runat="server" Text="1"></asp:Label>&nbsp;]
 							</span>
@@ -192,7 +192,7 @@
 							<span>&nbsp;总页码为：[&nbsp;<asp:Label ID="labTotalPage" runat="server"></asp:Label>&nbsp;]
 							</span>
 						</td>
-						<td style="width: 18%;" align="left">
+						<td style="width: 16%;" align="left">
 							<asp:LinkButton ID="lbFirstPage" runat="server" CssClass="linkButtonStyle" OnClick="lbFirstPage_Click">第一页</asp:LinkButton>
 							<asp:LinkButton ID="lbFrontPage" runat="server" CssClass="linkButtonStyle" OnClick="lbFrontPage_Click">上一页</asp:LinkButton>
 							<asp:LinkButton ID="lbNextPage" runat="server" CssClass="linkButtonStyle" OnClick="lbNextPage_Click">下一页</asp:LinkButton>

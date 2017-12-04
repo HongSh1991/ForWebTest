@@ -20,7 +20,7 @@
 		<span style="font-size: 14pt">课程名称管理</span>
 	</legend>
 </fieldset>
-<!--新增机构目录-->
+<!--新增课程目录-->
 <div id="test1" class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right: 150px">
 	<div class="layui-form-item">
 		<label class="layui-form-label" style="text-align: right">课程名称:</label>
@@ -49,7 +49,7 @@
 		<span style="font-size: 14pt">课程目录管理</span>
 	</legend>
 </fieldset>
-<!--新增部门-->
+<!--新增课程-->
 <div id="test2" class="site-text site-block" style="margin-top: 24px; margin-left: 150px; margin-right:150px">
 	<div class="layui-form-item">
 		<label class="layui-form-label" style="text-align: right">目录名称:</label>
