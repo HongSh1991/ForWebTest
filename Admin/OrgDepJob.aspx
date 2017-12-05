@@ -106,7 +106,7 @@
 						<!--机构信息-->
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
-								<span style="font-size: 14pt">机构信息管理</span>
+								>&nbsp;<span style="font-size: 14pt">机构信息管理</span>
 							</legend>
 						</fieldset>
 						<!--新增机构目录-->
@@ -139,7 +139,7 @@
 						<!--部门信息-->
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
-								<span style="font-size: 14pt">部门信息管理</span>
+								>>&nbsp;<span style="font-size: 14pt">部门信息管理</span>
 							</legend>
 						</fieldset>
 						<!--新增部门-->
@@ -177,7 +177,7 @@
 						<!--岗位信息-->
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
-								<span style="font-size: 14pt">岗位信息管理</span>
+								>>>&nbsp;<span style="font-size: 14pt;">岗位信息管理</span>
 							</legend>
 						</fieldset>
 						<!--新增岗位-->

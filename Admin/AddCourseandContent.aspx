@@ -106,7 +106,7 @@
 					<td>
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
-								<span style="font-size: 14pt">课程名称管理</span>
+								>&nbsp;<span style="font-size: 14pt">课程名称管理</span>
 							</legend>
 						</fieldset>
 						<!--新增课程目录-->
@@ -138,7 +138,7 @@
 					<td>
 						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 1%; margin-left: 120px; margin-right: 120px">
 							<legend>
-								<span style="font-size: 14pt">课程目录管理</span>
+								>>&nbsp;<span style="font-size: 14pt">课程目录管理</span>
 							</legend>
 						</fieldset>
 						<!--新增课程-->

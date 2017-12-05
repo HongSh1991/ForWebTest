@@ -8,3 +8,5 @@
 /*.webinfo
 /*.exclude
 /Resources/UploadFiles
+/*.publishproj
+/App_Data
