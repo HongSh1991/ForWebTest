@@ -6,10 +6,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 	<title style="text-align: center">管理员，欢迎您！</title>
 	<script src="../../Resources/Admin/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 	<script src="../Resources/Common/js/jquery-1.12.3.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../StyleSheet.css" type="text/css" />
 
 	<style type="text/css">
 		.button {

@@ -6,7 +6,7 @@
 <head runat="server">
 	<meta name="renderer" content="webkit" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="format-detection" content="telephone=no" />
@@ -15,6 +15,7 @@
 	<script src="../Resources/Common/layui/layui.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="../layui/css/layui.css"/>
 	<link rel="stylesheet" href="../layui/css/global.css" media="all" />
+	<link rel="stylesheet" href="../StyleSheet.css" type="text/css" />
 </head>
 <body style="background-color:#1E9FFF;"><!--#00CCFF-->
 	<table align="center" style="margin-top: 240px">
