@@ -20,6 +20,9 @@ public partial class Admin_Index : System.Web.UI.Page
 		}
 	}
 
+	/// <summary>
+	/// 绑定用户信息列表
+	/// </summary>
 	public void Bind()
 	{
 		string dataSearch = "select * from tb_UserInfo";
@@ -96,6 +99,11 @@ public partial class Admin_Index : System.Web.UI.Page
 		Bind();
 	}
 
+	/// <summary>
+	/// 根据部门信息查询
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	protected void ddlSearchDepartment_SelectIndexChange(object sender, EventArgs e)
 	{
 		string selectedText = ddlSearchDepartment.SelectedItem.Text.Trim();
@@ -116,6 +124,9 @@ public partial class Admin_Index : System.Web.UI.Page
 		}
 	}
 
+	/// <summary>
+	/// 绑定部门下拉列表数据
+	/// </summary>
 	protected void BindDepDDL()
 	{
 		//string sqlCheck = "select * from tb_UserInfo, tb_Department";
@@ -143,17 +154,34 @@ public partial class Admin_Index : System.Web.UI.Page
 		}
 	}
 
+	/// <summary>
+	/// 根据角色权限查询
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	protected void ddlSearchRole_SelectIndexChange(object sender, EventArgs e)
 	{
-		string selectedText = ddlSearchRole.SelectedItem.Text.Trim();
-		string sqlSearch = "select * from tb_UserInfo where U_Role=@userrole";
-		string sqlSearch1 = "select * from tb_UserInfo where U_Role='" + selectedText + "'";
+		string selectedDepText = ddlSearchDepartment.SelectedItem.Text.Trim();//已选择的部门信息
+		string selectedRoleText = ddlSearchRole.SelectedItem.Text.Trim();
+		string sqlSearch = "select * from tb_UserInfo where U_Role=@userrole and U_DepartmentName=@departmentname";
+		string sqlSearch1 = "select * from tb_UserInfo where U_Role='" + selectedRoleText + "'";
+		string sqlSearch2 = "select * from tb_UserInfo where U_DepartmentName='" + selectedDepText + "'";
 		SqlParameter[] pms = new SqlParameter[]{
-			new SqlParameter("@userrole", selectedText)
+			new SqlParameter("@userrole", selectedRoleText),
+			new SqlParameter("@departmentname", selectedDepText)
 		};
 		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch1).Rows.Count == 0)
 		{
-			Bind();
+			if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch2).Rows.Count != 0)
+			{
+				gvUser.DataSource = DBHelper.DBHelper.ExecuteDataTable(sqlSearch2);
+				gvUser.DataKeyNames = new string[] { "U_ID" };
+				gvUser.DataBind();
+			}
+			else
+			{
+				Bind();
+			}
 		}
 		else
 		{
@@ -163,13 +191,18 @@ public partial class Admin_Index : System.Web.UI.Page
 		}
 	}
 
+	/// <summary>
+	/// 根据选择的部门信息，用户角色权限，填写的用户姓名查询
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	protected void btnSearch_Click(object sender, EventArgs e)
 	{
 		string inputedText = tbSearchUserName.Text.Trim();
-		string sqlSearch = "select * from tb_UserInfo where U_UserName='" + inputedText + "'";
+		string sqlSearch = "select * from tb_UserInfo where U_UserName='" + inputedText + "'and U_DepartmentName='" + ddlSearchDepartment.SelectedItem.Text + "' and U_Role= '" + ddlSearchRole.SelectedItem.Text + "'";
 		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
 		{
-			Response.Write("<script>alert('没有该用户！！！');window.location=''</script>");
+			Response.Write("<script>alert('没有该用户！！！');window.location='../Admin/Index.aspx'</script>");
 		}
 		else
 		{

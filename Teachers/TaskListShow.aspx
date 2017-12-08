@@ -141,7 +141,7 @@
 		</aside>
 
 		<div style="margin-top: 0.6%; margin-left: 21%; margin-right: 60px; width: 76.8%">
-			<asp:SiteMapPath ID="smp1" runat="server" ></asp:SiteMapPath>
+			当前位置&nbsp;:&nbsp;<asp:SiteMapPath ID="smp1" runat="server" ></asp:SiteMapPath>
 		</div>
 		<div id="main2" style="margin-top: 9%; margin-left: 0.6%; margin-right: 60px; width: 78.2%; overflow-x:hidden; overflow-y:auto">
 			<asp:DataList ID="dlCourseContent" runat="server" RepeatColumns="4" RepeatDirection="Horizontal">

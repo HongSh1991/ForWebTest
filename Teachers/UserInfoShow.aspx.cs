@@ -120,7 +120,7 @@ public partial class Teachers_UserInfoShow : System.Web.UI.Page
 	protected void btnSearch_Click(object sender, EventArgs e)
 	{
 		string inputedText = tbSearchUserName.Text.Trim();
-		string sqlSearch = "select * from tb_UserInfo where U_UserName='" + inputedText + "'";
+		string sqlSearch = "select * from tb_UserInfo where U_UserName='" + inputedText + "' and U_DepartmentName='" + ddlSearchDepartment.SelectedItem.Text + "'";
 		if (DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
 		{
 			Response.Write("<script>alert('没有该用户！！！');window.location=''</script>");

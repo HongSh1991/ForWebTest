@@ -68,7 +68,7 @@ public partial class Admin_ShowTask : System.Web.UI.Page
 	protected void btnSearchCourse_Click(object sender, EventArgs e)
 	{
 		string inputValue = tbFileName.Text.Trim();
-		string sqlSearch = "select * from tb_CourseFiles where CF_CFileName = '" + inputValue + "'";
+		string sqlSearch = "select * from tb_CourseFiles where CF_CFileName = '" + inputValue + "' and CF_CFileContent= '" + ddlContentBelong.SelectedItem.Text + "'";
 		if (inputValue == "" || DBHelper.DBHelper.ExecuteDataTable(sqlSearch).Rows.Count == 0)
 		{
 			Response.Write("<script>alert('没有该课件！！！');window.location=''</script>");

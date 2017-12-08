@@ -142,7 +142,7 @@
 														<div class="layui-form-item">
 															<label class="layui-form-label" style="text-align: right">用户名:</label>
 															<div class="layui-input-inline">
-																<asp:TextBox ID="tbSearchUserName" runat="server" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
+																<asp:TextBox ID="tbSearchUserName" runat="server" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" CssClass="layui-input"></asp:TextBox>
 															</div>
 
 															<label class="layui-form-label" style="text-align: right">所属部门:</label>

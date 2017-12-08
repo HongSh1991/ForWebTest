@@ -141,7 +141,7 @@
 			</div>
 		</aside>
 		<div style="margin-top: 0.6%; margin-left: 21%; margin-right: 60px; width: 76.8%">
-			<asp:SiteMapPath ID="smp1" runat="server" ></asp:SiteMapPath>
+			当前位置&nbsp;:&nbsp;<asp:SiteMapPath ID="smp1" runat="server" ></asp:SiteMapPath>
 		</div>
 		<div id="main2" style="margin-top: 8.6%; margin-left: 2%; margin-right: 60px; width: 76.8%">
 			<asp:GridView ID="gvUser" runat="server" OnPageIndexChanging="gvUser_PageIndexChanging" OnRowDataBound="gvUser_RowDataBound" AutoGenerateColumns="False" AllowPaging="true" PageSize="15" CssClass="layui-table">
