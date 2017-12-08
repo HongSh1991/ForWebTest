@@ -31,10 +31,10 @@ public partial class Teachers_T_Header : System.Web.UI.UserControl
 		this.Response.Redirect("../LoginPages/Login.aspx"); // 退出并跳转到登录页
 	}
 
-	//protected void lbIndex_Click(object sender, EventArgs e)
-	//{
-	//	Response.Write("<script>window.location='../Teachers/T_Index.aspx'</script>");
-	//}
+	protected void lbIndex_Click(object sender, EventArgs e)
+	{
+		Response.Write("<script>window.location='../Teachers/T_Index.aspx'</script>");
+	}
 
 	protected void lbUserManager_Click(object sender, EventArgs e)
 	{

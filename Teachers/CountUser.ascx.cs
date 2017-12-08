@@ -13,7 +13,7 @@ public partial class Teachers_CountUser : System.Web.UI.UserControl
 		{
 			BindTaskDDL();
 
-			string searchData0 = "select * from tb_ChartUserData";
+			string searchData0 = "select top 30* from tb_ChartUserData order by CU_CUserDataUserNameNum desc";
 			chartBar.DataSource = DBHelper.DBHelper.ExecuteReader(searchData0);
 			chartBar.Series["Series1"].XValueMember = "CU_CUserDataUserName";
 			chartBar.Series["Series1"].YValueMembers = "CU_CUserDataUserNameNum";
@@ -46,8 +46,8 @@ public partial class Teachers_CountUser : System.Web.UI.UserControl
 	protected void ddlSearchTask_SelectIndexChange(object sender, EventArgs e)
 	{
 		string selectedVal = ddlSearchTask.SelectedItem.Text.Trim();
-		string searchData0 = "select * from tb_ChartUserData";
-		string searchData1 = "select * from tb_ChartUserData where CU_CUserDataCourseName = '" + selectedVal + "'";
+		string searchData0 = "select top 30* from tb_ChartUserData order by CU_CUserDataUserNameNum desc";
+		string searchData1 = "select * from tb_ChartUserData where CU_CUserDataCourseName = '" + selectedVal + "' order by CU_CUserDataUserNameNum desc ";
 		if (selectedVal == "" || (DBHelper.DBHelper.ExecuteDataTable(searchData1).Rows.Count == 0))
 		{
 			chartBar.DataSource = DBHelper.DBHelper.ExecuteReader(searchData0);

@@ -32,9 +32,9 @@
 	<li class="layui-nav-item">
 		<asp:Label ID="lbTips" runat="server" Font-Names="华文楷体" Font-Bold="true" ForeColor="white" Font-Size="1.6em"></asp:Label>
 	</li>
-	<%--<li class="layui-nav-item">
-		<asp:LinkButton ID="lbIndex" runat="server" OnClick="lbIndex_Click">教师主页</asp:LinkButton>
-	</li>--%>
+	<li class="layui-nav-item">
+		<asp:LinkButton ID="lbIndex" runat="server" OnClick="lbIndex_Click">首&nbsp;&nbsp;&nbsp;&nbsp;页</asp:LinkButton>
+	</li>
 	<li class="layui-nav-item">
 		<asp:LinkButton ID="lbUserManager" runat="server" OnClick="lbUserManager_Click">人员列表</asp:LinkButton>
 	</li>
